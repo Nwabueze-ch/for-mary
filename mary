@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will you be my Valentine? 💘</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #ffe0f0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: #333;
+    }
+
+    .container {
+      padding-top: 60px;
+    }
+
+    .teddy {
+      font-size: 120px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 10px;
+      color: #d61a7f;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      margin: 15px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #yesBtn {
+      background: #ff69b4;
+      color: white;
+    }
+
+    #noBtn {
+      background: #ffb6c1;
+      position: relative;
+    }
+
+    #response {
+      margin-top: 25px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #c2185b;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="teddy">🧸</div>
+    <h1>Mary ❤️</h1>
+    <p>Will you be my Valentine?</p>
+
+    <button id="yesBtn" onclick="showYes()">Yes 😍</button>
+    <button id="noBtn" onmouseover="runAway()">No 😅</button>
+
+    <div id="response"></div>
+  </div>
+
+  <audio id="music" loop>
+    <!-- Replace the src below with your own romantic Tems song link -->
+    <source src="YOUR_TEMS_SONG_URL_HERE" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+
+    function runAway() {
+      let x = Math.random() * 200 - 100;
+      let y = Math.random() * 100 - 50;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function showYes() {
+      document.getElementById("response").innerHTML = 
+        "Yes! 💖 I knew you’d say that! 😘";
+    }
+
+    // Auto‑play music
+    window.onload = function() {
+      document.getElementById("music").play().catch(() => {});
+    }
+  </script>
+
+</body>
+</html>
